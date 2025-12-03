@@ -1,0 +1,22 @@
+current directory: /Users/richardopiyo/my_projects/baha_auto_spares/backend/vendor/bundle/ruby/3.4.0/gems/bootsnap-1.19.0/ext/bootsnap
+/Users/richardopiyo/.local/share/mise/installs/ruby/3.4.1/bin/ruby extconf.rb
+checking for fdatasync() in unistd.h... yes
+checking for whether -D_GNU_SOURCE is accepted as CPPFLAGS... yes
+checking for whether -O3 is accepted as CFLAGS... yes
+checking for whether -std=c99 is accepted as CFLAGS... yes
+creating Makefile
+
+current directory: /Users/richardopiyo/my_projects/baha_auto_spares/backend/vendor/bundle/ruby/3.4.0/gems/bootsnap-1.19.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20251202-66874-t8a6s0 sitelibdir\=./.gem.20251202-66874-t8a6s0 clean
+
+current directory: /Users/richardopiyo/my_projects/baha_auto_spares/backend/vendor/bundle/ruby/3.4.0/gems/bootsnap-1.19.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20251202-66874-t8a6s0 sitelibdir\=./.gem.20251202-66874-t8a6s0
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/richardopiyo/my_projects/baha_auto_spares/backend/vendor/bundle/ruby/3.4.0/gems/bootsnap-1.19.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20251202-66874-t8a6s0 sitelibdir\=./.gem.20251202-66874-t8a6s0 install
+/usr/local/bin/ginstall -c -m 0755 bootsnap.bundle ./.gem.20251202-66874-t8a6s0/bootsnap
+
+current directory: /Users/richardopiyo/my_projects/baha_auto_spares/backend/vendor/bundle/ruby/3.4.0/gems/bootsnap-1.19.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20251202-66874-t8a6s0 sitelibdir\=./.gem.20251202-66874-t8a6s0 clean

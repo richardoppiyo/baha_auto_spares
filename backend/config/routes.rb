@@ -7,4 +7,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  resources :years, only: [:index]
+  resources :make_models, only: [:index]
 end

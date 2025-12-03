@@ -1,0 +1,18 @@
+current directory: /Users/richardopiyo/my_projects/baha_auto_spares/backend/vendor/bundle/ruby/3.4.0/gems/racc-1.8.1/ext/racc/cparse
+/Users/richardopiyo/.local/share/mise/installs/ruby/3.4.1/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/richardopiyo/my_projects/baha_auto_spares/backend/vendor/bundle/ruby/3.4.0/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20251202-66874-8e4pe8 sitelibdir\=./.gem.20251202-66874-8e4pe8 clean
+
+current directory: /Users/richardopiyo/my_projects/baha_auto_spares/backend/vendor/bundle/ruby/3.4.0/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20251202-66874-8e4pe8 sitelibdir\=./.gem.20251202-66874-8e4pe8
+compiling cparse.c
+linking shared-object racc/cparse.bundle
+
+current directory: /Users/richardopiyo/my_projects/baha_auto_spares/backend/vendor/bundle/ruby/3.4.0/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20251202-66874-8e4pe8 sitelibdir\=./.gem.20251202-66874-8e4pe8 install
+/usr/local/bin/ginstall -c -m 0755 cparse.bundle ./.gem.20251202-66874-8e4pe8/racc
+
+current directory: /Users/richardopiyo/my_projects/baha_auto_spares/backend/vendor/bundle/ruby/3.4.0/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20251202-66874-8e4pe8 sitelibdir\=./.gem.20251202-66874-8e4pe8 clean

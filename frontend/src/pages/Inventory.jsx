@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import {
+  fetchMakeModels,
+  fetchYears,
   resetResults,
   searchParts,
   updateFilter,
@@ -10,13 +12,20 @@ import {
 const Inventory = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const { filters, options, status, error } = useSelector(
-    (state) => state.search,
-  )
+  const {
+    filters,
+    options,
+    status,
+    error,
+    yearsStatus,
+    makeModelsStatus,
+  } = useSelector((state) => state.search)
   const [formError, setFormError] = useState('')
 
   useEffect(() => {
     dispatch(resetResults())
+    dispatch(fetchYears())
+    dispatch(fetchMakeModels())
   }, [dispatch])
 
   const handleChange = (key) => (event) => {
@@ -63,8 +72,9 @@ const Inventory = () => {
               id="year"
               value={filters.year}
               onChange={handleChange('year')}
+              disabled={yearsStatus === 'loading'}
             >
-              <option value="">Choose a year</option>
+              <option value="">{yearsStatus === 'loading' ? 'Loading…' : 'Choose a year'}</option>
               {options.years.map((year) => (
                 <option key={year} value={year}>
                   {year}
@@ -79,8 +89,11 @@ const Inventory = () => {
               id="make"
               value={filters.makeModel}
               onChange={handleChange('makeModel')}
+              disabled={makeModelsStatus === 'loading'}
             >
-              <option value="">Choose make/model</option>
+              <option value="">
+                {makeModelsStatus === 'loading' ? 'Loading…' : 'Choose make/model'}
+              </option>
               {options.makeModels.map((make) => (
                 <option key={make} value={make}>
                   {make}

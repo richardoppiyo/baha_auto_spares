@@ -43,6 +43,31 @@ const mockInventory = [
   },
 ]
 
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:3000'
+
+// Fetch available years from the Rails backend API.
+export const fetchYears = createAsyncThunk('search/fetchYears', async () => {
+  const res = await fetch(`${API_BASE}/years`)
+  if (!res.ok) {
+    throw new Error('Failed to load years')
+  }
+  const data = await res.json()
+  return data.years || []
+})
+
+// Fetch available make/models from the Rails backend API.
+export const fetchMakeModels = createAsyncThunk(
+  'search/fetchMakeModels',
+  async () => {
+    const res = await fetch(`${API_BASE}/make_models`)
+    if (!res.ok) {
+      throw new Error('Failed to load make/models')
+    }
+    const data = await res.json()
+    return data.make_models || []
+  },
+)
+
 export const searchParts = createAsyncThunk(
   'search/searchParts',
   async (filters) => {
@@ -67,15 +92,8 @@ const initialState = {
     part: '',
   },
   options: {
-    years: ['2024', '2023', '2022', '2021', '2020', '2019', '2018'],
-    makeModels: [
-      'Toyota Camry',
-      'Toyota Corolla',
-      'Honda Accord',
-      'Honda Civic',
-      'Ford F-150',
-      'Subaru Forester',
-    ],
+    years: [],
+    makeModels: [],
     parts: [
       'Brake Pads',
       'Oil Filter',
@@ -87,6 +105,8 @@ const initialState = {
   },
   results: [],
   status: 'idle',
+  yearsStatus: 'idle',
+  makeModelsStatus: 'idle',
   error: null,
 }
 
@@ -106,6 +126,26 @@ const searchSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      .addCase(fetchYears.pending, (state) => {
+        state.yearsStatus = 'loading'
+      })
+      .addCase(fetchYears.fulfilled, (state, action) => {
+        state.yearsStatus = 'succeeded'
+        state.options.years = action.payload
+      })
+      .addCase(fetchYears.rejected, (state) => {
+        state.yearsStatus = 'failed'
+      })
+      .addCase(fetchMakeModels.pending, (state) => {
+        state.makeModelsStatus = 'loading'
+      })
+      .addCase(fetchMakeModels.fulfilled, (state, action) => {
+        state.makeModelsStatus = 'succeeded'
+        state.options.makeModels = action.payload
+      })
+      .addCase(fetchMakeModels.rejected, (state) => {
+        state.makeModelsStatus = 'failed'
+      })
       .addCase(searchParts.pending, (state) => {
         state.status = 'loading'
         state.error = null

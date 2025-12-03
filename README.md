@@ -31,3 +31,10 @@ React + Redux frontend with a Rails (API-only) backend on PostgreSQL for searchi
 - Results page: shows matched parts (currently mocked) with availability and pricing placeholders.
 
 The Redux slice that drives the inventory form and results lives at `frontend/src/features/search/searchSlice.js`. Replace the mock search in `searchParts` with a real API call once the Rails endpoints are ready.
+
+## API endpoints (starting list)
+- `GET /years` — returns `{ years: [2025, 2024, ...] }` from the current year down to 2010. Implemented in `backend/app/controllers/years_controller.rb`.
+- `GET /make_models` — returns `{ make_models: [...] }` (static list for now). Implemented in `backend/app/controllers/make_models_controller.rb`.
+
+### Running backend tests
+`cd backend && bin/rails test` (after `bundle install` and DB setup). There is an integration test for `/years` at `backend/test/controllers/years_controller_test.rb`.
